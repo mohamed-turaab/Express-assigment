@@ -3,8 +3,6 @@ import express from "express";
 const app = express();
 const port = 8000;
 
-app.use(express.json());
-
 let users = [
   { id: 1, name: "Mohamed Ismail Adan", email: "mohamedturaab1991@gmail.com" },
   { id: 2, name: "Aisha Abdulkadir Mohamed", email: "cayuushabdulkadir@gmail.com" },
@@ -38,6 +36,8 @@ app.get("/users/:id", (req, res) => {
 
   res.send(user);
 });
+
+app.use(express.json());
 
 app.post("/users", (req, res) => {
   if (!req.body.name || !req.body.email) {
